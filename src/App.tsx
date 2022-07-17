@@ -1,9 +1,12 @@
-import React from 'react';
+import { GlobalStyles } from './styles/GlobalStyles.styled';
 
 export const App = () => {
   return (
-    <div className="App">
+    <>
+    <GlobalStyles />
+    <div>
       Typescript app
     </div>
+    </>
   );
 }
