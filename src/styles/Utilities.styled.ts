@@ -58,14 +58,16 @@ export const bp = {
 
 export const theme = {
   colors: {
-    primary: "",
+    primary: "#153d6f",
 
     // neutral
     white: "hsl(0, 100%, 100%)",
     black: "hsl(0,0%, 0%, 0.8)",
     gray100: "hsl(210, 50%, 98%)",
+    gray200: "hsl(210, 30%, 90%)",
     gray300: "hsl(210, 20%, 80%)",
     gray400: "hsl(0, 0%, 54%)",
+    gray700: "hsl(0, 0%, 34%)",
   },
   fonts: {
     primary: `'Segoe UI', sans-serif`,
