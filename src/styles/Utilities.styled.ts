@@ -123,7 +123,6 @@ export const size = (
 
 export const mq = (breakpoint: string): FlattenSimpleInterpolation => {
   return css`
-    @media screen and (min-width: ${breakpoint}) {
-    }
-  `;
+    @media screen and (min-width: ${breakpoint})
+  `
 };

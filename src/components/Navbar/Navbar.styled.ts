@@ -1,11 +1,19 @@
 import styled from "styled-components";
-import { flexSpBetween, rem, size, theme } from "../../styles/Utilities.styled";
+import {
+  bp,
+  flexSpBetween,
+  mq,
+  rem,
+  size,
+  theme,
+} from "../../styles/Utilities.styled";
 
 export const StyledNavbar = styled.div`
-  margin-top: 1rem;
+  padding-top: 1rem;
 
   .wrapper {
     ${flexSpBetween};
+    gap: 1rem;
   }
 
   .hamburger {
@@ -14,16 +22,17 @@ export const StyledNavbar = styled.div`
 
   .search-wrapper {
     position: relative;
+    width: min(70%, ${rem(350)});
 
     svg {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      left: 7%;
+      left: 1rem;
     }
 
     input {
-      width: min(100%, ${rem(300)});
+      width: 100%;
       font-family: inherit;
       padding: 0.9em 0.2em 0.9em 3em;
       background: ${theme.colors.gray100};
@@ -35,9 +44,27 @@ export const StyledNavbar = styled.div`
     }
   }
 
-  .avatar {
-    ${size("35px")};
-    border-radius: 50%;
-    background-color: ${theme.colors.gray300};
+  .right-icons {
+    ${mq(bp.small)} {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .notification {
+      display: none;
+
+      ${mq(bp.small)} {
+        display: block;
+        font-size: 1.8rem;
+      }
+    }
+
+    .avatar {
+      ${size("35px")};
+      border-radius: 50%;
+      background-color: ${theme.colors.gray300};
+      overflow: hidden;
+    }
   }
 `;
