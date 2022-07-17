@@ -60,12 +60,9 @@ export const theme = {
   colors: {
     primary: "",
 
-    // Accents
-    primaryAccent100: "hsl(170, 93%, 66%)",
-
     // neutral
     white: "hsl(0, 100%, 100%)",
-    black: "hsl(0,0%, 0%)",
+    black: "hsl(0,0%, 0%, 0.8)",
     gray100: "hsl(210, 50%, 98%)",
     gray300: "hsl(210, 20%, 80%)",
     gray400: "hsl(0, 0%, 54%)",

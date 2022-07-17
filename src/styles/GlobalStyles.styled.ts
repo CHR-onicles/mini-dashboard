@@ -14,7 +14,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        /* scroll-behavior: smooth; */ // for faster scroll to top during page transitions
         height: 100%;
     }
 
@@ -59,14 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     button {
         cursor: pointer;
     }
-
-    .false-image {
-        position: absolute;
-        z-index: -999;
-        opacity: 0;
-        visibility: hidden;
-    }
-
+ 
     // Remove all animations and transitions for users
     // who have it turned off in system settings
     @media (prefers-reduced-motion: reduce) {
