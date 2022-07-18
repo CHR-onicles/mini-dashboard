@@ -1,4 +1,4 @@
-import { css, FlattenSimpleInterpolation } from "styled-components";
+import { css } from "styled-components";
 
 // Helper function to convert from px to rem (1rem = 16px by browser default)
 export const rem = (value: number, omitUnit = false): string => {
@@ -17,7 +17,7 @@ export const alpha = (color: string, opacity = 1): string => {
   if (opacity < 0 || opacity > 1) {
     throw new Error("Opacity must be between 0 and 1 inclusive");
   }
-  const formatted_opacity = +String(opacity).padStart(3, '0');
+  const formatted_opacity = +String(opacity).padStart(3, "0");
 
   if (color.includes("#")) {
     if (!hex_pattern.test(color))
@@ -27,7 +27,7 @@ export const alpha = (color: string, opacity = 1): string => {
     else
       return `${color}${Math.floor(formatted_opacity * 255)
         .toString(16)
-        .padStart(2, '0')}`;
+        .padStart(2, "0")}`;
   }
 
   if (hsl_pattern.test(color)) {
@@ -113,18 +113,15 @@ export const pseudo = css`
   position: absolute;
 `;
 
-export const size = (
-  width: string,
-  height = width
-): FlattenSimpleInterpolation => {
+export const size = (width: string, height = width) => {
   return css`
     width: ${width};
     height: ${height};
   `;
 };
 
-export const mq = (breakpoint: string): FlattenSimpleInterpolation => {
+export const mq = (breakpoint: string) => {
   return css`
-    @media screen and (min-width: ${breakpoint})
-  `
+    @media screen and (min-width: ${breakpoint});
+  `;
 };
