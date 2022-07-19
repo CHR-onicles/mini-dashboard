@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bp, mq, size } from "../../styles/Utilities.styled";
+import { bp, mq } from "../../styles/Utilities.styled";
 
 export const StyledHome = styled.div`
   .cards-container {
@@ -7,10 +7,16 @@ export const StyledHome = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 
     ${mq(bp.small)} {
       flex-flow: row wrap;
+      gap: 2rem;
+      justify-content: start;
     }
+  }
+
+  .chart-container {
+    margin-top: 2.5rem;
   }
 `;
