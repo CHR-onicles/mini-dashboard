@@ -19,11 +19,15 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         min-height: 100%;
-        background-color: ${theme.colors.white};
+        background-color: ${theme.colors.bg};
         font-family: ${theme.fonts.primary};
         color: black;
         overflow-x: hidden;
         line-height: 1.5;
+    }
+
+    #root {
+        height: 100%;
     }
 
     h1, h2 {

@@ -4,12 +4,20 @@ import { MdOutlineNotificationsNone } from "react-icons/md";
 import { StyledNavbar } from "./Navbar.styled";
 import { Container } from "../../styles/components/Container.styled";
 
-export const Navbar = () => {
+interface Props {
+  isSideMenuOpen: boolean
+  setIsSideMenuOpen: (arg: boolean) => void
+}
+
+export const Navbar = ({isSideMenuOpen, setIsSideMenuOpen}: Props) => {
   return (
     <StyledNavbar>
       <Container>
         <div className="wrapper">
+          <button className="hamburger-btn" onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}>
           <HiMenuAlt2 className="hamburger" />
+          </button>
+          <p className="logo">Logo</p>
           <div className="search-wrapper">
             <input type="text" placeholder="Search" />
             <BsSearch />

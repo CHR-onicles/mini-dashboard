@@ -60,12 +60,14 @@ export const theme = {
   colors: {
     primary: "#153d6f",
 
+    bg: '#f5f5f5',
+
     // neutral
     white: "hsl(0, 100%, 100%)",
     black: "hsl(0,0%, 0%, 0.8)",
-    gray100: "hsl(210, 50%, 98%)",
-    gray200: "hsl(210, 30%, 90%)",
-    gray300: "hsl(210, 20%, 80%)",
+    gray100: "hsl(210, 0%, 98%)",
+    gray200: "hsl(210, 0%, 90%)",
+    gray300: "hsl(210, 0%, 80%)",
     gray400: "hsl(0, 0%, 54%)",
     gray700: "hsl(0, 0%, 34%)",
   },
@@ -122,6 +124,6 @@ export const size = (width: string, height = width) => {
 
 export const mq = (breakpoint: string) => {
   return css`
-    @media screen and (min-width: ${breakpoint});
+    @media screen and (min-width: ${breakpoint})
   `;
 };

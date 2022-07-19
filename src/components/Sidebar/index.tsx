@@ -6,15 +6,20 @@ import { StyledSidebar } from "./Sidebar.styled";
 import { Link } from "react-router-dom";
 
 interface Props {
-  className?: string;
+  className?: string
+  isSideMenuOpen: boolean
+  setIsSideMenuOpen: (arg: boolean) => void
 }
-export const Sidebar = ({ className }: Props) => {
+export const Sidebar = ({ className, isSideMenuOpen, setIsSideMenuOpen }: Props) => {
+
   return (
-    <StyledSidebar className={className}>
+    <StyledSidebar className={`${className} ${isSideMenuOpen ? 'active' : ''}`} >
       {/* <div className="overlay" aria-hidden={true}></div> */}
       <ul className="nav-list">
-        <IoMdClose className="close-icon" />
-        <li>
+        <button className="close-btn" onClick={()=> setIsSideMenuOpen(!isSideMenuOpen)}>
+          <IoMdClose />
+        </button>
+        <li className="active">
           {/* <Link to="#"> */}
           <AiOutlineHome className="menu-icon" />
           Home

@@ -16,8 +16,23 @@ export const StyledNavbar = styled.div`
     gap: 1rem;
   }
 
-  .hamburger {
+  .logo {
+    display: none;
+    font-size: ${rem(18)};
+    font-weight: 700;
+
+    ${mq(bp.small)} {
+      display: block;
+    }
+  }
+
+  .hamburger-btn {
     font-size: 1.6rem;
+    background: none;
+
+    ${mq(bp.small)} {
+      display: none;
+    }
   }
 
   .search-wrapper {
@@ -35,7 +50,7 @@ export const StyledNavbar = styled.div`
       width: 100%;
       font-family: inherit;
       padding: 0.9em 0.2em 0.9em 3em;
-      background: ${theme.colors.gray100};
+      background: ${theme.colors.white};
       border-radius: 5px;
 
       &::placeholder {

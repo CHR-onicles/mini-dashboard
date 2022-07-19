@@ -5,12 +5,18 @@ export const StyledSidebar = styled.nav`
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
 
   ${mq(bp.small)} {
     position: static;
-    background-color: none;
+    transform: translate(0);
   }
-
+  
+  &.active {
+    transform: translate(0);
+  }
+  
   .nav-list {
     display: flex;
     flex-direction: column;
@@ -20,13 +26,13 @@ export const StyledSidebar = styled.nav`
     left: 0;
     ${size("90%", "100%")}
     padding-top: 3rem;
-    background-color: white;
+    background-color: ${theme.colors.bg};
     z-index: 1;
-
+    
     ${mq(bp.small)} {
-        position: static;
-        ${size('unset')};
-        background-color: none;
+      position: static;
+      ${size('unset', '100%')};
+      background-color: none;
         z-index: 0;
     }
 
@@ -39,6 +45,10 @@ export const StyledSidebar = styled.nav`
       border-radius: 3px;
       cursor: pointer;
       transition: background-color 0.3s;
+
+      &.active {
+        background-color: ${theme.colors.gray300};
+      }
       
       &:hover {
         background-color: ${theme.colors.gray200};
@@ -50,12 +60,13 @@ export const StyledSidebar = styled.nav`
     }
   }
 
-  .close-icon {
-    color: ${theme.colors.gray700};
+  .close-btn {
     position: absolute;
     top: 2%;
     right: 3%;
+    color: ${theme.colors.gray700};
     font-size: 1.8rem;
+    background: none;
 
     ${mq(bp.small)} {
       display: none;
