@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { alpha, bp, mq, rem } from "../../styles/Utilities.styled";
+import { bp, mq, rem, theme } from "../../styles/Utilities.styled";
 
 export const StyledCard = styled.div`
   display: grid;
@@ -7,8 +7,7 @@ export const StyledCard = styled.div`
   width: 100%;
   height: ${rem(200)};
   background-color: white;
-  box-shadow: 0 3px 3px 0 ${alpha("#000000", 0.08)},
-    0 5px 15px 0 ${alpha("#000000", 0.08)};
+  box-shadow: ${theme.cardBoxShadow};
   border-radius: 3px;
 
   ${mq(bp.small)} {

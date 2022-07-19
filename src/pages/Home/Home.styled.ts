@@ -19,4 +19,15 @@ export const StyledHome = styled.div`
   .chart-container {
     margin-top: 2.5rem;
   }
+
+  .widgets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    ${mq(bp.medium)} {
+        flex-direction: row;
+    }
+  }
 `;

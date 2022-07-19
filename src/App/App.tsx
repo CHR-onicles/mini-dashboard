@@ -2,7 +2,7 @@ import { GlobalStyles } from "../styles/GlobalStyles.styled";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { StyledApp } from "./App.styled";
-import { Preloader } from "../components/Preloader";
+// import { Preloader } from "../components/Preloader";
 import { useState } from "react";
 import { Home } from "../pages/Home";
 

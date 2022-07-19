@@ -81,6 +81,8 @@ export const theme = {
     almostLinear: "cubic-bezier(0.4,0.6,0.6,1)",
     textReveal: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
+  cardBoxShadow: `0 3px 3px 0 ${alpha("#000000", 0.08)},
+  0 5px 15px 0 ${alpha("#000000", 0.08)};`
 };
 
 /*********************************************************************
