@@ -3,7 +3,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
 import { BsGraphUp, BsCart } from "react-icons/bs";
 import { StyledSidebar } from "./Sidebar.styled";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 interface Props {
   className?: string
@@ -14,7 +14,6 @@ export const Sidebar = ({ className, isSideMenuOpen, setIsSideMenuOpen }: Props)
 
   return (
     <StyledSidebar className={`${className} ${isSideMenuOpen ? 'active' : ''}`} >
-      {/* <div className="overlay" aria-hidden={true}></div> */}
       <ul className="nav-list">
         <button className="close-btn" onClick={()=> setIsSideMenuOpen(!isSideMenuOpen)}>
           <IoMdClose />

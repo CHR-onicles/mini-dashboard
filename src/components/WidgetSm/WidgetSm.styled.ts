@@ -9,7 +9,7 @@ import {
 } from "../../styles/Utilities.styled";
 
 export const StyledWidgetSm = styled.div`
-  padding: 1rem;
+  padding: 2rem;
   box-shadow: ${theme.cardBoxShadow};
 
   ${mq(bp.xlarge)} {
