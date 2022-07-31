@@ -7,7 +7,7 @@ interface Props {
 export const UserList = ({ className }: Props) => {
   return (
     <StyledUserList className={className}>
-      <p>userlist</p>
+      <h2>All Users</h2>
       <Table />
     </StyledUserList>
   );

@@ -8,7 +8,7 @@ export const StyledTable = styled.div`
 
   table {
     border-spacing: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     tr {
       :last-child {
@@ -22,12 +22,17 @@ export const StyledTable = styled.div`
     td {
       margin: 0;
       padding: 1rem 2rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
+      /* border-bottom: 1px solid black; */
+      /* border-right: 1px solid black; */
 
       :last-child {
         border-right: 0;
       }
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        margin-right: 1rem;
     }
   }
 `;

@@ -33,7 +33,7 @@ const data: {
   },
 ];
 
-const columns: any =  [
+const columns: any = [
   {
     Header: "ID",
     accessor: "id",
@@ -51,7 +51,6 @@ const columns: any =  [
     accessor: "age",
   },
 ];
-
 
 export const Table = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -88,6 +87,10 @@ export const Table = () => {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
               </tr>
             );
           })}
