@@ -57,6 +57,10 @@ export const StyledSidebar = styled.nav`
         background-color: ${theme.colors.gray200};
       }
 
+      a {
+        ${size('100%')};
+      }
+
       .menu-icon {
         margin-right: 0.5em;
       }

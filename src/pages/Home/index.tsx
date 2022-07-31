@@ -1,7 +1,7 @@
-import { Card } from "../../components/Card";
-import { Chart } from "../../components/Chart";
-import { WidgetLg } from "../../components/WidgetLg";
-import { WidgetSm } from "../../components/WidgetSm";
+import { Card } from "../../components";
+import { Chart } from "../../components";
+import { WidgetLg } from "../../components";
+import { WidgetSm } from "../../components";
 import { StyledHome } from "./Home.styled";
 
 interface Props {
