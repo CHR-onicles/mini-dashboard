@@ -11,6 +11,7 @@ export const StyledSidebar = styled.nav`
   ${mq(bp.small)} {
     position: static;
     transform: translate(0);
+    background-color: ${theme.colors.bg}
   }
   
   &.active {
@@ -30,8 +31,10 @@ export const StyledSidebar = styled.nav`
     z-index: 1;
     
     ${mq(bp.small)} {
-      position: static;
-      ${size('unset', '100%')};
+      position: sticky;
+      top: 0;
+      left: 0;
+      ${size( '100%', 'fit-content')};
       background-color: none;
         z-index: 0;
     }

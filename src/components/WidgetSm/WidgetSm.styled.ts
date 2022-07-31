@@ -10,6 +10,7 @@ import {
 
 export const StyledWidgetSm = styled.div`
   padding: 2rem;
+  background-color: ${theme.colors.white};
   box-shadow: ${theme.cardBoxShadow};
 
   ${mq(bp.xlarge)} {
@@ -51,6 +52,7 @@ export const StyledWidgetSm = styled.div`
 
     button {
       font-weight: 700;
+      background: none;
     }
   }
 `;
