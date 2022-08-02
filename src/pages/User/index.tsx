@@ -1,4 +1,5 @@
-import {BsPerson} from "react-icons/bs"
+import {BsPerson, BsCalendarDate, BsPhone} from "react-icons/bs"
+import {MdOutlineEmail, MdOutlineLocationOn} from "react-icons/md"
 import { StyledUser } from "./User.styled";
 
 interface Props {
@@ -26,7 +27,11 @@ export const User = ({ className }: Props) => {
           </div>
           <h3 className="section-title">Account Details</h3>
           <p><BsPerson /> <span>Bruce Banner</span></p>
+          <p><BsCalendarDate /> <span>11 July 2022</span></p>
           <h3 className="section-title">Contact Details</h3>
+          <p><BsPhone /> <span>+233550112233</span></p>
+          <p><MdOutlineEmail /> <span>brucebanner@gmail.com</span></p>
+          <p><MdOutlineLocationOn /> <span>New York | USA</span></p>
         </div>
 
         <div className="form-view"></div>

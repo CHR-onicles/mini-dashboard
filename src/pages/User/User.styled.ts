@@ -58,8 +58,13 @@ export const StyledUser = styled.div`
 
     .section-title {
         color: ${theme.colors.gray400};
-        margin: 2rem 0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
         font-weight: 500;
+    }
+
+    p {
+      margin-block: 0.5rem;
     }
   }
 
