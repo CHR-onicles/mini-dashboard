@@ -14,7 +14,8 @@ export const StyledUser = styled.div`
     }
 
     button {
-      padding: 0.7rem 1.2rem;
+      background-color: ${theme.colors.gray300};
+      padding: 0.7rem 2rem;
     }
   }
 
@@ -40,7 +41,6 @@ export const StyledUser = styled.div`
       }
 
       .text-wrapper {
-
         .name {
           font-size: ${rem(17)};
           font-weight: 700;
@@ -57,10 +57,10 @@ export const StyledUser = styled.div`
     }
 
     .section-title {
-        color: ${theme.colors.gray400};
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
+      color: ${theme.colors.gray400};
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
     p {
@@ -72,5 +72,50 @@ export const StyledUser = styled.div`
     flex: 4;
     padding: 1rem;
     background-color: ${theme.colors.white};
+
+    .form-title {
+      font-size: 2rem;
+    }
+
+    .flex {
+      display: flex;
+      gap: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-basis: 50%;
+      margin-top: 2rem;
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        input {
+          border-bottom: 1px solid black;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .right-side {
+      display: flex;
+      flex-basis: 50%;
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 100%;
+      /* outline: 1px solid; */
+
+      button {
+        padding: 0.8rem 2.5rem;
+        background-color: ${theme.colors.gray300};
+      }
+    }
   }
 `;
