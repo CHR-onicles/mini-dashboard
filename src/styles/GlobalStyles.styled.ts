@@ -51,6 +51,7 @@ export const GlobalStyles = createGlobalStyle`
 
     a {
         font-family: inherit;
+        color: inherit;
         display: inline-block;
         text-decoration: none;
     }
