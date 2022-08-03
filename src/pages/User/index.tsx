@@ -1,5 +1,6 @@
 import { BsPerson, BsCalendarDate, BsPhone } from "react-icons/bs";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { StyledUser } from "./User.styled";
 
 interface Props {
@@ -10,7 +11,9 @@ export const User = ({ className }: Props) => {
     <StyledUser className={className}>
       <div className="header-wrapper">
         <h2>Edit User</h2>
-        <button>Create</button>
+        <Link to="/newUser">
+          Create
+        </Link>
       </div>
 
       <div className="container">

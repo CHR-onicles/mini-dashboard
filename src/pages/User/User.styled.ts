@@ -13,7 +13,7 @@ export const StyledUser = styled.div`
       font-size: 2rem;
     }
 
-    button {
+    a {
       background-color: ${theme.colors.gray300};
       padding: 0.7rem 2rem;
     }
