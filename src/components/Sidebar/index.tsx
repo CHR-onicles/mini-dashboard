@@ -25,10 +25,11 @@ export const Sidebar = ({
         item.addEventListener("click", () => {
           listItems.forEach((elem) => elem.classList.remove("active"));
           item.classList.add("active");
+          setIsSideMenuOpen(false);
         });
       });
     }
-  }, []);
+  }, [setIsSideMenuOpen]);
 
   return (
     <StyledSidebar className={`${className} ${isSideMenuOpen ? "active" : ""}`}>
