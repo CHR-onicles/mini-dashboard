@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { size, theme } from "../../styles/Utilities.styled";
 
 export const StyledTable = styled.div`
-  ${size('100%')};
+  ${size('100%', 'fit-content')};
   padding: 1rem;
   background-color: ${theme.colors.white};
 
