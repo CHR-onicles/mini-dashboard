@@ -9,9 +9,6 @@ export const StyledApp = styled.div`
     /* outline: 1px solid; */
   }
 
-  /* .sidebar {
-  } */
-
   .page {
     position: static;
     width: 90%;
@@ -24,8 +21,8 @@ export const StyledApp = styled.div`
     ${mq(bp.small)} {
       position: absolute;
       top: 0;
-      left: 266px;
-      width: calc(100% - (266px + 20px));
+      left: calc(var(--sidebar-width) + var(--sidebar-page-gap));
+      width: calc(100% - (var(--sidebar-width) + var(--sidebar-page-gap)));
       height: 100vh;
     }
   }

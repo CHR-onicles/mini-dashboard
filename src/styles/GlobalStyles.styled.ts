@@ -1,10 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./Utilities.styled";
+import { rem, theme } from "./Utilities.styled";
 
 export const GlobalStyles = createGlobalStyle`
 
     :root {
-        // insert CSS variables here
+        --sidebar-width: ${rem(266)};
+        --sidebar-page-gap: ${rem(25)};
     }
 
     *, ::before, ::after {

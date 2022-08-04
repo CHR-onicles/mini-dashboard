@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { size, theme } from "../../styles/Utilities.styled";
 
 export const StyledTable = styled.div`
-  ${size('100%', 'fit-content')};
+  ${size("100%", "fit-content")};
   padding: 1rem;
   background-color: ${theme.colors.white};
 
@@ -31,8 +31,8 @@ export const StyledTable = styled.div`
     }
 
     button {
-        padding: 0.5rem 1rem;
-        margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
     }
   }
 `;
