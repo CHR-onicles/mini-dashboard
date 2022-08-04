@@ -11,7 +11,8 @@ export const StyledSidebar = styled.nav`
   ${mq(bp.small)} {
     position: static;
     transform: translate(0);
-    background-color: ${theme.colors.bg}
+    background-color: ${theme.colors.bg};
+    width: 266px;
   }
   
   &.active {

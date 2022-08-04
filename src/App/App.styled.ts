@@ -1,61 +1,51 @@
 import styled from "styled-components";
-import { bp, mq } from "../styles/Utilities.styled";
+import { bp, mq, size } from "../styles/Utilities.styled";
 
 export const StyledApp = styled.div`
-  .app-container {
-    display: flex;
-    height: 100%;
-    padding-bottom: 2rem;
-  }
+  ${size("100%")}
 
-  .sidebar {
-    ${mq(bp.small)} {
-      flex: 1.5;
-    }
-    ${mq(bp.medium)} {
-      flex: 1;
-    }
-    ${mq(bp.xxlarge)} {
-      flex: 0.5;
-    }
+  .app-container {
+    position: relative;
+    /* outline: 1px solid; */
   }
 
   .page {
-    margin-top: 1rem;
+    position: static;
     width: 90%;
+    padding-block-start: 2rem;
+    padding-block-end: 5rem;
     margin-inline: auto;
-
+    overflow-y: auto;
+    /* outline: 1px solid red; */
+    
     ${mq(bp.small)} {
-      flex: 3.5;
-      padding: 1rem;
-    }
-    ${mq(bp.medium)} {
-      flex: 4;
-    }
-    ${mq(bp.xxlarge)} {
-      flex: 4.5;
+      position: absolute;
+      top: 0;
+      left: calc(var(--sidebar-width) + var(--sidebar-page-gap));
+      width: calc(100% - (var(--sidebar-width) + var(--sidebar-page-gap)));
+      height: 100vh;
     }
   }
 
   .transition-enter {
     opacity: 0;
-    /* transform: scale(1.1); */
+    transform: translateY(5%);
   }
 
   .transition-enter-active {
     opacity: 1;
-    /* transform: scale(1); */
-    transition: opacity 300ms, transform 300ms;
+    transform: translateY(0%);
+    transition: opacity 200ms, transform 200ms;
   }
 
   .transition-exit {
     opacity: 1;
-    /* transform: scale(1); */
+    transform: translateY(0%);
   }
 
   .transition-exit-active {
     opacity: 0;
-    /* transform: scale(0.9); */
-    transition: opacity 300ms, transform 300ms;
+    transform: translateY(5%);
+    transition: opacity 100ms, transform 100ms;
   }
 `;

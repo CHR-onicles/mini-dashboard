@@ -10,7 +10,7 @@ export const StyledNewUser = styled.div`
     display: flex;
     gap: 2.5rem;
     margin-top: 2rem;
-    width: 85%;
+    width: 100%;
 
     .left,
     .right {

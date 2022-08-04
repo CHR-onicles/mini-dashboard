@@ -1,10 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./Utilities.styled";
+import { rem, theme } from "./Utilities.styled";
 
 export const GlobalStyles = createGlobalStyle`
 
     :root {
-        // insert CSS variables here
+        --sidebar-width: ${rem(266)};
+        --sidebar-page-gap: ${rem(25)};
     }
 
     *, ::before, ::after {
@@ -13,21 +14,16 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    html {
+    html,body, #root {
         height: 100%;
     }
 
     body {
-        min-height: 100%;
         background-color: ${theme.colors.bg};
         font-family: ${theme.fonts.primary};
         color: black;
-        overflow-x: hidden;
+        overflow: hidden;
         line-height: 1.5;
-    }
-
-    #root {
-        height: 100%;
     }
 
     h1, h2 {
