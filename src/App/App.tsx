@@ -58,6 +58,7 @@ const App = () => {
   );
 };
 
+// wrapping App component in router in order to use "useLocation" hook
 export const RootApp = () => (
   <Router>
     <App />

@@ -9,7 +9,7 @@ export const StyledHome = styled.div`
     align-items: center;
     gap: 1.5rem;
 
-    ${mq(bp.small)} {
+    ${mq(bp.medium)} {
       flex-flow: row wrap;
       gap: 2rem;
       justify-content: start;
