@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { StyledNavbar } from "./Navbar.styled";
 import { Container } from "../../styles/components/Container.styled";
+import { Link } from "react-router-dom";
 
 interface Props {
   isSideMenuOpen: boolean
@@ -17,7 +18,7 @@ export const Navbar = ({isSideMenuOpen, setIsSideMenuOpen}: Props) => {
           <button className="hamburger-btn" onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}>
           <HiMenuAlt2 className="hamburger" />
           </button>
-          <p className="logo">Logo</p>
+          <Link to="/" className="logo">Logo</Link>
           <div className="search-wrapper">
             <input type="text" placeholder="Search" />
             <BsSearch />

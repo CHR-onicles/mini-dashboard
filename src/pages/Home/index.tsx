@@ -10,6 +10,7 @@ interface Props {
 export const Home = ({ className }: Props) => {
   return (
     <StyledHome className={className}>
+      <h2>Home</h2>
       <div className="cards-container">
         <Card number={1} />
         <Card number={2} />

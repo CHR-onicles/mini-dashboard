@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { bp, mq } from "../../styles/Utilities.styled";
 
 export const StyledHome = styled.div`
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
   .cards-container {
     display: flex;
     flex-direction: column;
@@ -27,7 +31,7 @@ export const StyledHome = styled.div`
     margin-top: 2rem;
 
     ${mq(bp.medium)} {
-        flex-direction: row;
+      flex-direction: row;
     }
   }
 `;
