@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexColumn, theme } from "../../styles/Utilities.styled";
+import { flexColumn, rem, theme } from "../../styles/Utilities.styled";
 
 export const StyledNewUser = styled.div`
   h2 {
@@ -29,10 +29,25 @@ export const StyledNewUser = styled.div`
 
       input {
         padding: 0.7rem 1rem;
+        font-size: ${rem(14)};
+
+        &::placeholder {
+          color: ${theme.colors.gray400};
+        }
       }
 
+      .radio-btns {
+        display: flex;
+        gap: 1rem;
+      }
+      
       .radio-btns > label {
         margin-right: 0.75rem;
+      }
+
+      .radio-btn-wrapper {
+        display: flex;
+        gap: 0.3rem;
       }
     }
   }

@@ -60,11 +60,11 @@ export const theme = {
   colors: {
     primary: "#153d6f",
 
-    bg: '#f5f5f5',
+    bg: "#f5f5f5",
 
     // neutral
     white: "hsl(0, 100%, 100%)",
-    black: "hsl(0,0%, 0%, 0.8)",
+    black: "hsl(0, 5%, 17%)",
     gray100: "hsl(210, 0%, 98%)",
     gray200: "hsl(210, 0%, 90%)",
     gray300: "hsl(210, 0%, 80%)",
@@ -72,7 +72,7 @@ export const theme = {
     gray700: "hsl(0, 0%, 34%)",
   },
   fonts: {
-    primary: `'Segoe UI', sans-serif`,
+    primary: `'Poppins', sans-serif`,
   },
   ease: {
     // easing functions
@@ -82,7 +82,7 @@ export const theme = {
     textReveal: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
   cardBoxShadow: `0 3px 3px 0 ${alpha("#000000", 0.08)},
-  0 5px 15px 0 ${alpha("#000000", 0.08)};`
+  0 5px 15px 0 ${alpha("#000000", 0.08)};`,
 };
 
 /*********************************************************************
@@ -126,6 +126,6 @@ export const size = (width: string, height = width) => {
 
 export const mq = (breakpoint: string) => {
   return css`
-    @media screen and (min-width: ${breakpoint})
+    @media screen and (min-width: ${breakpoint});
   `;
 };

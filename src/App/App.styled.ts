@@ -24,7 +24,7 @@ export const StyledApp = styled.div`
       left: calc(var(--sidebar-width) + var(--sidebar-page-gap));
       width: calc(100% - (var(--sidebar-width) + var(--sidebar-page-gap)));
       height: 100vh;
-      padding-right: 2rem;
+      padding-inline: 2rem;
     }
   }
 

@@ -10,10 +10,13 @@ import {
 
 export const StyledNavbar = styled.div`
   padding-top: 1rem;
+  width: 95%;
+  margin-inline: auto;
 
   .wrapper {
     ${flexSpBetween};
     gap: 1rem;
+    /* outline: 1px solid; */
   }
 
   .logo {

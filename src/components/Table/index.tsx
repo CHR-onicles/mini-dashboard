@@ -1,64 +1,76 @@
-import { StyledTable } from "./Table.styled";
-import { useTable } from "react-table";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useTable } from "react-table";
+import { FiEdit3 } from "react-icons/fi";
+import { AiOutlineDelete } from "react-icons/ai";
+import { StyledTable } from "./Table.styled";
 
-const dummyData: {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age: number;
-}[] = [
-  {
-    id: 0,
-    firstName: "Steve",
-    lastName: "Rogers",
-    age: 26,
-  },
-  {
-    id: 1,
-    firstName: "Peter",
-    lastName: "Parker",
-    age: 21,
-  },
-  {
-    id: 2,
-    firstName: "Tony",
-    lastName: "Stark",
-    age: 46,
-  },
-  {
-    id: 3,
-    firstName: "Bruce",
-    lastName: "Banner",
-    age: 50,
-  },
-];
+// const dummyData = [
+//   {
+//     id: 0,
+//     firstName: "Steve",
+//     lastName: "Rogers",
+//     age: 26,
+//   },
+//   {
+//     id: 1,
+//     firstName: "Peter",
+//     lastName: "Parker",
+//     age: 21,
+//   },
+//   {
+//     id: 2,
+//     firstName: "Tony",
+//     lastName: "Stark",
+//     age: 46,
+//   },
+//   {
+//     id: 3,
+//     firstName: "Bruce",
+//     lastName: "Banner",
+//     age: 50,
+//   },
+// ];
 
-const columns: any = [
-  {
-    Header: "ID",
-    accessor: "id",
-  },
-  {
-    Header: "First Name",
-    accessor: "firstName",
-  },
-  {
-    Header: "Last Name",
-    accessor: "lastName",
-  },
-  {
-    Header: "Age",
-    accessor: "age",
-  },
-];
+// const columns: any = [
+//   {
+//     Header: "ID",
+//     accessor: "id",
+//   },
+//   {
+//     Header: "First Name",
+//     accessor: "firstName",
+//   },
+//   {
+//     Header: "Last Name",
+//     accessor: "lastName",
+//   },
+//   {
+//     Header: "Age",
+//     accessor: "age",
+//   },
+// ];
 
-export const Table = () => {
-  const [data, setData] = useState(dummyData);
+
+interface Props {
+  userData: {
+      id: number;
+      username: string;
+      fullName: string;
+      gender: string;
+      // phone: string;
+      // email: string;
+      role: string;
+      // dateCreated: Date;
+  }[],
+  columns: any[]
+}
+
+export const Table = ({userData, columns}: Props) => {
+  const [data, setData] = useState(userData);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
+  useTable({
       columns,
       data,
     });
@@ -96,10 +108,17 @@ export const Table = () => {
                   );
                 })}
                 <td>
-                  <Link to={`/user/${row.id}`}>
-                    <button>Edit</button>
+                  <Link to={`/user/${row.cells[0].value}`}>
+                    <button title="Edit">
+                      <FiEdit3 />
+                    </button>
                   </Link>
-                  <button onClick={() => handleDelete(row.cells[0].value)}>Delete</button>
+                  <button
+                    title="Delete"
+                    onClick={() => handleDelete(row.cells[0].value)}
+                  >
+                    <AiOutlineDelete />
+                  </button>
                 </td>
               </tr>
             );

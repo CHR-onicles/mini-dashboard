@@ -1,12 +1,19 @@
 import styled from "styled-components";
-import { size, theme } from "../../styles/Utilities.styled";
+import {
+  alpha,
+  flexCenter,
+  rem,
+  size,
+  theme,
+} from "../../styles/Utilities.styled";
 
 export const StyledTable = styled.div`
-  ${size("100%", "fit-content")};
+  ${size("fit-content")};
   padding: 1rem;
   background-color: ${theme.colors.white};
 
   table {
+    text-align: left;
     border-spacing: 0;
     /* border: 1px solid black; */
 
@@ -15,6 +22,10 @@ export const StyledTable = styled.div`
         td {
           border-bottom: 0;
         }
+      }
+      &:not(thead > tr) {
+        /* background-color: ${theme.colors.gray200}; */
+        font-size: ${rem(14)};
       }
     }
 
@@ -31,8 +42,30 @@ export const StyledTable = styled.div`
     }
 
     button {
-      padding: 0.5rem 1rem;
-      margin-right: 1rem;
+      ${flexCenter};
+      display: inline-flex;
+      padding: 0.35rem 0.5rem;
+      margin-right: 0.25rem;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid ${alpha(theme.colors.black, 0.6)};
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: ${theme.colors.gray200};
+      }
+
+      &[title="Delete"]:hover {
+        background-color: hsl(0, 100%, 92%);
+
+        svg {
+          fill: hsl(0, 100%, 45%);
+        }
+      }
+
+      svg {
+        font-size: ${rem(14)};
+      }
     }
   }
 `;

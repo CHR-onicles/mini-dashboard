@@ -1,8 +1,7 @@
 import { HiMenuAlt2 } from "react-icons/hi";
-import { BsSearch } from "react-icons/bs";
+// import { BsSearch } from "react-icons/bs";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { StyledNavbar } from "./Navbar.styled";
-import { Container } from "../../styles/components/Container.styled";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -13,16 +12,16 @@ interface Props {
 export const Navbar = ({isSideMenuOpen, setIsSideMenuOpen}: Props) => {
   return (
     <StyledNavbar>
-      <Container>
+      {/* <Container> */}
         <div className="wrapper">
           <button className="hamburger-btn" onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}>
           <HiMenuAlt2 className="hamburger" />
           </button>
           <Link to="/" className="logo">Logo</Link>
-          <div className="search-wrapper">
+          {/* <div className="search-wrapper">
             <input type="text" placeholder="Search" />
             <BsSearch />
-          </div>
+          </div> */}
           <div className="right-icons">
             <MdOutlineNotificationsNone className="notification" />
             <div className="avatar">
@@ -30,7 +29,7 @@ export const Navbar = ({isSideMenuOpen, setIsSideMenuOpen}: Props) => {
             </div>
           </div>
         </div>
-      </Container>
+      {/* </Container> */}
     </StyledNavbar>
   );
 };

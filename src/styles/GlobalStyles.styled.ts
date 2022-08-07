@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${theme.colors.bg};
         font-family: ${theme.fonts.primary};
-        color: black;
+        color: ${theme.colors.black};
         overflow: hidden;
         line-height: 1.5;
     }
@@ -54,6 +54,7 @@ export const GlobalStyles = createGlobalStyle`
 
     button, input {
         border: none;
+        font-family: inherit;
     }
 
     button {

@@ -12,42 +12,47 @@ export const NewUser = ({ className }: Props) => {
         <div className="left">
           <div className="wrapper">
             <label htmlFor="">Username</label>
-            <input type="text" placeholder="John" />
+            <input type="text" placeholder="Eg: TheJohnny" />
           </div>
           <div className="wrapper">
             <label htmlFor="">Fullname</label>
-            <input type="text" placeholder="John Rogers" />
+            <input type="text" placeholder="Eg: John Rogers" />
           </div>
           <div className="wrapper">
             <label htmlFor="">Email</label>
-            <input type="email" placeholder="Johnrogers@gmail.com" />
-          </div>
-          <div className="wrapper">
-            <label htmlFor="">Password</label>
-            <input type="password" />
+            <input type="email" placeholder="Eg: Johnrogers@gmail.com" />
           </div>
         </div>
         <div className="right">
           <div className="wrapper">
             <label htmlFor="">Phone</label>
-            <input type="text" placeholder="+123445677" />
+            <input type="text" placeholder="Eg: +123445677" />
           </div>
           <div className="wrapper">
             <label htmlFor="">Address</label>
-            <input type="text" placeholder="New York | USA" />
+            <input type="text" placeholder="Eg: New York, USA" />
           </div>
           <div className="wrapper">
             <label htmlFor="">Gender</label>
             <div className="radio-btns">
-              <input type="radio" name="gender" id="radio-male" value="Male" />
-              <label htmlFor="radio-male">Male</label>
-              <input
-                type="radio"
-                name="gender"
-                id="radio-female"
-                value="Female"
-              />
-              <label htmlFor="radio-female">Female</label>
+              <div className="radio-btn-wrapper">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="radio-male"
+                  value="Male"
+                />
+                <label htmlFor="radio-male">Male</label>
+              </div>
+              <div className="radio-btn-wrapper">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="radio-female"
+                  value="Female"
+                />
+                <label htmlFor="radio-female">Female</label>
+              </div>
             </div>
           </div>
         </div>

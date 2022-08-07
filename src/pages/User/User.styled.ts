@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { flexSpBetween, rem, size, theme } from "../../styles/Utilities.styled";
+import {
+  flexColumn,
+  flexSpBetween,
+  rem,
+  size,
+  theme,
+} from "../../styles/Utilities.styled";
 
 export const StyledUser = styled.div`
   padding: 2rem;
@@ -26,7 +32,7 @@ export const StyledUser = styled.div`
 
   .detail-view {
     flex: 2;
-    padding: 1rem;
+    padding: 2rem;
     background-color: ${theme.colors.white};
 
     .person {
@@ -56,21 +62,33 @@ export const StyledUser = styled.div`
       }
     }
 
-    .section-title {
-      color: ${theme.colors.gray400};
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
+    .account-details,
+    .contact-details {
+      ${flexColumn};
+      gap: 0.25rem;
+      margin-top: 2rem;
+
+      .section-title {
+        margin-bottom: 0.7rem;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: ${rem(15)};
+      }
     }
 
-    p {
-      margin-block: 0.5rem;
+    .section-title {
+      color: ${theme.colors.gray400};
+      font-weight: 500;
     }
   }
 
   .form-view {
     flex: 4;
-    padding: 1rem;
+    padding: 2rem;
     background-color: ${theme.colors.white};
 
     .form-title {
@@ -83,19 +101,23 @@ export const StyledUser = styled.div`
     }
 
     form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      ${flexColumn};
+      gap: 1.25rem;
       flex-basis: 50%;
       margin-top: 2rem;
 
       .wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+        ${flexColumn};
+        gap: 0.25rem;
 
         input {
-          border-bottom: 1px solid black;
+          padding: 0 0.5rem 0.4rem 0;
+          font-size: ${rem(14)};
+          border-bottom: 1px solid ${theme.colors.black};
+
+          &::placeholder {
+            color: ${theme.colors.gray400};
+          }
 
           &:focus {
             outline: none;
@@ -113,7 +135,8 @@ export const StyledUser = styled.div`
       /* outline: 1px solid; */
 
       button {
-        padding: 0.8rem 2.5rem;
+        padding: 0.8em 2.5em;
+        font-size: ${rem(14)};
         background-color: ${theme.colors.gray300};
       }
     }
