@@ -84,13 +84,13 @@ export const User = ({ className }: Props) => {
           <div className="contact-details">
             <h3 className="section-title">Contact Details</h3>
             <div>
-              <BsPhone /> <span>+233550112233</span>
+              <BsPhone /> <span>{currentUser.phone}</span>
             </div>
             <div>
-              <MdOutlineEmail /> <span>brucebanner@gmail.com</span>
+              <MdOutlineEmail /> <span>{currentUser.email}</span>
             </div>
             <div>
-              <MdOutlineLocationOn /> <span>New York | USA</span>
+              <MdOutlineLocationOn /> <span>{currentUser.address}</span>
             </div>
           </div>
         </div>

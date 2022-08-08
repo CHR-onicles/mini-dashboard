@@ -24,6 +24,7 @@ export const UserProvider = ({ children }: Props) => {
         user.gender = userToUpdate.gender || user.gender;
         user.phone = userToUpdate.phone || user.phone;
         user.role = userToUpdate.role || user.role;
+        user.address = userToUpdate.address || user.address;
       }
       return user;
     });
