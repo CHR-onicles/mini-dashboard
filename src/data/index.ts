@@ -49,7 +49,7 @@ export const userData: TUser[] = [
   },
   {
     id: 2,
-    username: "Captain America",
+    username: "Captain_America",
     fullName: "Steve Rogers",
     gender: "male",
     phone: "+233111111111",
@@ -60,7 +60,7 @@ export const userData: TUser[] = [
   },
   {
     id: 3,
-    username: "Iron man",
+    username: "Iron_man",
     fullName: "Tony Stark",
     gender: "male",
     phone: "+233222222222",
@@ -71,7 +71,7 @@ export const userData: TUser[] = [
   },
   {
     id: 4,
-    username: "Black widow",
+    username: "Black_widow",
     fullName: "Natasha Romanoff",
     gender: "female",
     phone: "+233333333333",

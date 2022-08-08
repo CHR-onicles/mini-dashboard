@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsPerson, BsCalendarDate, BsPhone } from "react-icons/bs";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import { userContext } from "../../contexts/userContext";
 import { StyledUser } from "./User.styled";
-import {TUserContext} from "../../types"
+import { TUserContext, TUser } from "../../types";
 
 interface Props {
   className?: string;
@@ -21,8 +21,9 @@ const initialState = {
 export const User = ({ className }: Props) => {
   const { id } = useParams();
   const [form, setForm] = useState(initialState);
+  const [currentUser, setCurrentUser] = useState({} as TUser);
 
-const {users, updateUser} = useContext(userContext) as TUserContext;
+  const { users, updateUser } = useContext(userContext) as TUserContext;
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement;
@@ -32,8 +33,25 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // console.log(form);
-    // updateUser()
+    const updatedUser: TUser = {
+      ...form,
+      id: currentUser.id,
+      gender: currentUser.gender,
+      phone: currentUser.phone 
+    }
+    updateUser(updatedUser)
   };
+
+  const fetchCurrentUserData = (id: string) => {
+    return users.find(user => user.id === +id);
+  };
+
+  useEffect(() => {
+    if (id) {
+      const user = fetchCurrentUserData(id);
+      user && setCurrentUser(user);
+    }
+  }, []);
 
   return (
     <StyledUser className={className}>
@@ -49,14 +67,14 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
               <img src="https://i.pravatar.cc/150" alt="Person" />
             </div>
             <div className="text-wrapper">
-              <p className="name">Caty Popumber</p>
-              <div className="role">UI/UX Designer</div>
+              <p className="name">{currentUser.username}</p>
+              <div className="role">{currentUser.role}</div>
             </div>
           </div>
           <div className="account-details">
             <h3 className="section-title">Account Details</h3>
             <div>
-              <BsPerson /> <span>Bruce Banner</span>
+              <BsPerson /> <span>{currentUser.fullName}</span>
             </div>
             <div>
               <BsCalendarDate /> <span>11 July 2022</span>
@@ -86,7 +104,7 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
                 <input
                   id="username"
                   type="text"
-                  placeholder="BruceB"
+                  placeholder={currentUser.username}
                   name="username"
                   onChange={handleChange}
                 />
@@ -96,7 +114,7 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
                 <input
                   id="fullName"
                   type="text"
-                  placeholder="Bruce Banner"
+                  placeholder={currentUser.fullName}
                   name="fullName"
                   onChange={handleChange}
                 />
@@ -106,7 +124,7 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
                 <input
                   id="role"
                   type="text"
-                  placeholder="Software Engineer"
+                  placeholder={currentUser.role}
                   name="role"
                   onChange={handleChange}
                 />
@@ -116,7 +134,7 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
                 <input
                   id="email"
                   type="email"
-                  placeholder="brucebanner@gmail.com"
+                  placeholder={currentUser.email}
                   name="email"
                   onChange={handleChange}
                 />
@@ -126,7 +144,7 @@ const {users, updateUser} = useContext(userContext) as TUserContext;
                 <input
                   id="address"
                   type="text"
-                  placeholder="New York | USA"
+                  placeholder={currentUser.address}
                   name="address"
                   onChange={handleChange}
                 />
