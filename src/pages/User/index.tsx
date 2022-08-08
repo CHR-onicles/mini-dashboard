@@ -1,12 +1,40 @@
+import React, { useContext, useState } from "react";
 import { BsPerson, BsCalendarDate, BsPhone } from "react-icons/bs";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { userContext } from "../../contexts/userContext";
 import { StyledUser } from "./User.styled";
+import {TUserContext} from "../../types"
 
 interface Props {
   className?: string;
 }
+
+const initialState = {
+  username: "",
+  fullName: "",
+  email: "",
+  role: "",
+  address: "",
+};
+
 export const User = ({ className }: Props) => {
+  const { id } = useParams();
+  const [form, setForm] = useState(initialState);
+
+const {users, updateUser} = useContext(userContext) as TUserContext;
+
+  const handleChange = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    setForm({ ...form, [target.name]: target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // console.log(form);
+    // updateUser()
+  };
+
   return (
     <StyledUser className={className}>
       <div className="header-wrapper">
@@ -55,15 +83,33 @@ export const User = ({ className }: Props) => {
             <form action="">
               <div className="wrapper">
                 <label htmlFor="username">Username</label>
-                <input id="username" type="text" placeholder="BruceB" />
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="BruceB"
+                  name="username"
+                  onChange={handleChange}
+                />
               </div>
               <div className="wrapper">
                 <label htmlFor="fullName">Full Name</label>
-                <input id="fullName" type="text" placeholder="Bruce Banner" />
+                <input
+                  id="fullName"
+                  type="text"
+                  placeholder="Bruce Banner"
+                  name="fullName"
+                  onChange={handleChange}
+                />
               </div>
               <div className="wrapper">
-                <label htmlFor="phon">Phone</label>
-                <input id="phone" type="text" placeholder="+1234567890" />
+                <label htmlFor="role">Role</label>
+                <input
+                  id="role"
+                  type="text"
+                  placeholder="Software Engineer"
+                  name="role"
+                  onChange={handleChange}
+                />
               </div>
               <div className="wrapper">
                 <label htmlFor="email">Email</label>
@@ -71,15 +117,23 @@ export const User = ({ className }: Props) => {
                   id="email"
                   type="email"
                   placeholder="brucebanner@gmail.com"
+                  name="email"
+                  onChange={handleChange}
                 />
               </div>
               <div className="wrapper">
                 <label htmlFor="address">Address</label>
-                <input id="address" type="text" placeholder="New York | USA" />
+                <input
+                  id="address"
+                  type="text"
+                  placeholder="New York | USA"
+                  name="address"
+                  onChange={handleChange}
+                />
               </div>
             </form>
             <div className="right-side">
-              <button type="submit" onClick={(e) => e.preventDefault()}>
+              <button type="submit" onClick={handleSubmit}>
                 Update
               </button>
             </div>

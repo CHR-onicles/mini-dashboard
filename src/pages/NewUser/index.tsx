@@ -15,13 +15,17 @@ export const NewUser = ({ className }: Props) => {
             <input type="text" placeholder="Eg: TheJohnny" />
           </div>
           <div className="wrapper">
-            <label htmlFor="">Fullname</label>
+            <label htmlFor="">Full name</label>
             <input type="text" placeholder="Eg: John Rogers" />
           </div>
           <div className="wrapper">
             <label htmlFor="">Email</label>
             <input type="email" placeholder="Eg: Johnrogers@gmail.com" />
           </div>
+          <div className="wrapper">
+              <label htmlFor="">Role</label>
+              <input type="text" placeholder="Eg: Software Engineer" />
+            </div>
         </div>
         <div className="right">
           <div className="wrapper">
