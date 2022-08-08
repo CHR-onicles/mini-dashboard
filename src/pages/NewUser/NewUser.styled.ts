@@ -7,10 +7,12 @@ export const StyledNewUser = styled.div`
   }
 
   form {
-    display: flex;
-    gap: 2.5rem;
-    margin-top: 2rem;
-    width: 100%;
+    .form-content {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
 
     .left,
     .right {
@@ -40,7 +42,7 @@ export const StyledNewUser = styled.div`
         display: flex;
         gap: 1rem;
       }
-      
+
       .radio-btns > label {
         margin-right: 0.75rem;
       }
