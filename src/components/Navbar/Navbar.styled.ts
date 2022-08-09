@@ -62,7 +62,7 @@ export const StyledNavbar = styled.div`
     }
   }
 
-  .right-icons {
+  .right-items {
     ${mq(bp.small)} {
       display: flex;
       align-items: center;
@@ -83,6 +83,11 @@ export const StyledNavbar = styled.div`
       border-radius: 50%;
       background-color: ${theme.colors.gray300};
       overflow: hidden;
+    }
+
+    button {
+      padding: 0.7em 1.5em;
+      background-color: ${theme.colors.gray300};
     }
   }
 `;
