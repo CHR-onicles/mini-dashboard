@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTable } from "react-table";
 import { FiEdit3 } from "react-icons/fi";
@@ -51,26 +51,26 @@ import { StyledTable } from "./Table.styled";
 //   },
 // ];
 
-
 interface Props {
   userData: {
-      id: number;
-      username: string;
-      fullName: string;
-      gender: string;
-      // phone: string;
-      // email: string;
-      role: string;
-      // dateCreated: Date;
-  }[],
-  columns: any[]
+    id: number;
+    username: string;
+    fullName: string;
+    gender: string;
+    // phone: string;
+    // email: string;
+    role: string;
+    // dateCreated: Date;
+  }[];
+  columns: any[];
 }
 
-export const Table = ({userData, columns}: Props) => {
+export const Table = ({ userData, columns }: Props) => {
   const [data, setData] = useState(userData);
+  const tableRef = useRef<HTMLTableElement>(null);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-  useTable({
+    useTable({
       columns,
       data,
     });
@@ -79,9 +79,21 @@ export const Table = ({userData, columns}: Props) => {
     setData(data.filter((item) => item.id !== id));
   };
 
+  useEffect(() => {
+    if (tableRef.current) {
+      const dataCells = tableRef.current.querySelectorAll(".data-cell");
+      dataCells.forEach((cell) => {
+        if (cell.textContent && cell.textContent.length > 10) {
+          cell.textContent =
+            cell.textContent.slice(0, cell.textContent.length - 3) + "...";
+        }
+      });
+    }
+  }, []);
+
   return (
     <StyledTable>
-      <table {...getTableProps()}>
+      <table {...getTableProps()} ref={tableRef}>
         <thead>
           {headerGroups.map((headerGroup) => {
             return (
@@ -104,7 +116,11 @@ export const Table = ({userData, columns}: Props) => {
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td {...cell.getCellProps()}>
+                      <p className="data-cell" title={cell.value}>
+                        {cell.render("Cell")}
+                      </p>
+                    </td>
                   );
                 })}
                 <td>

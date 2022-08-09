@@ -15,7 +15,7 @@ export const StyledTable = styled.div`
   table {
     text-align: left;
     border-spacing: 0;
-    
+
     tr {
       :last-child {
         td {
