@@ -3,7 +3,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
 import { BsGraphUp, BsCart } from "react-icons/bs";
 import { StyledSidebar } from "./Sidebar.styled";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 interface Props {
@@ -18,7 +18,6 @@ export const Sidebar = ({
 }: Props) => {
   const navListRef = useRef<HTMLUListElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
-  const location = useLocation();
 
   useEffect(() => {
     if (navListRef.current) {
@@ -31,10 +30,6 @@ export const Sidebar = ({
         });
       });
     }
-
-    // if (location.pathname === "/" && sidebarRef.current) {
-    //   sidebarRef.current.classList.add("onHomepage");
-    // } else if (location.pathname !== '/') sidebarRef.current?.classList.remove("onHomepage");
   }, [setIsSideMenuOpen]);
 
   return (

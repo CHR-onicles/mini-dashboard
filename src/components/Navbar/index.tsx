@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { HiMenuAlt2 } from "react-icons/hi";
+
 // import { BsSearch } from "react-icons/bs";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { StyledNavbar } from "./Navbar.styled";
-import { useEffect, useRef } from "react";
 
 interface Props {
   isSideMenuOpen: boolean;
@@ -13,14 +14,7 @@ interface Props {
 
 export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
   const { loginWithRedirect } = useAuth0();
-  const location = useLocation();
   const navbarRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // if (location.pathname === "/" && navbarRef.current) {
-    //   navbarRef.current.classList.add("onHomepage");
-    // }  else if (location.pathname !== '/') navbarRef.current?.classList.remove("onHomepage");
-  }, []);
 
   return (
     <StyledNavbar ref={navbarRef}>

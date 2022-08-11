@@ -1,16 +1,26 @@
 import styled from "styled-components";
-import { theme } from "../../styles/Utilities.styled";
+import { flexCenter, theme } from "../../styles/Utilities.styled";
 
 export const StyledHome = styled.div`
-    z-index: 999;
-    position: fixed;
-    inset: 0;
-    /* inset: 0; */
-    background-color: ${theme.colors.bg};
+  ${flexCenter};
+  position: fixed;
+  width: 100%;
+  inset: 0;
+  background-color: ${theme.colors.bg};
+  z-index: 999;
 
-    .content {
-        width: 100%;
-        max-height: 100vh;
-        overflow-y: auto;
+  .content {
+    max-height: 100vh;
+    overflow-y: auto;
+
+    h2 {
+      font-size: 2rem;
     }
-`
+
+    a {
+      margin-top: 2rem;
+      padding: 0.7em 1.5em;
+      background-color: ${theme.colors.gray300};
+    }
+  }
+`;
