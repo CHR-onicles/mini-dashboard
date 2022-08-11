@@ -17,7 +17,7 @@ export const StyledApp = styled.div`
     margin-inline: auto;
     overflow-y: auto;
     /* outline: 1px solid red; */
-    
+
     ${mq(bp.small)} {
       position: absolute;
       top: 0;
@@ -46,7 +46,9 @@ export const StyledApp = styled.div`
 
   .transition-exit-active {
     opacity: 0;
-    transform: translateY(-5%); // -5 gives this freaking smooth transition mann, but +5 is kinda lit too
+    transform: translateY(
+      -5%
+    ); // -5 gives this freaking smooth transition mann, but +5 is kinda lit too
     transition: opacity 100ms, transform 100ms;
   }
 `;

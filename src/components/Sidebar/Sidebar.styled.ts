@@ -14,7 +14,7 @@ export const StyledSidebar = styled.nav`
     background-color: ${theme.colors.bg};
     width: 266px;
   }
-  
+
   &.active {
     transform: translate(0);
   }
@@ -22,7 +22,7 @@ export const StyledSidebar = styled.nav`
   &.onHomepage {
     display: none;
   }
-  
+
   .nav-list {
     display: flex;
     flex-direction: column;
@@ -34,14 +34,14 @@ export const StyledSidebar = styled.nav`
     padding-top: 3rem;
     background-color: ${theme.colors.bg};
     z-index: 1;
-    
+
     ${mq(bp.small)} {
       position: sticky;
       top: 0;
       left: 0;
-      ${size( '100%', 'fit-content')};
+      ${size("100%", "fit-content")};
       background-color: none;
-        z-index: 0;
+      z-index: 0;
     }
 
     li {
@@ -57,13 +57,13 @@ export const StyledSidebar = styled.nav`
       &.active {
         background-color: ${theme.colors.gray300};
       }
-      
+
       &:hover {
         background-color: ${theme.colors.gray200};
       }
 
       a {
-        ${size('100%')};
+        ${size("100%")};
       }
 
       .menu-icon {

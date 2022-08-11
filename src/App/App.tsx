@@ -44,7 +44,10 @@ const App = () => {
           >
             <Routes location={location}>
               <Route path="/" element={<Home className="page" />} />
-              <Route path="/dashboard" element={<Dashboard className="page" />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard className="page" />}
+              />
               <Route path="/users" element={<UserList className="page" />} />
               <Route path="/user/:id" element={<User className="page" />} />
               <Route path="/newUser" element={<NewUser className="page" />} />
