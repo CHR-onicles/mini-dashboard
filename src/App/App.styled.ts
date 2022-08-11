@@ -46,7 +46,7 @@ export const StyledApp = styled.div`
 
   .transition-exit-active {
     opacity: 0;
-    transform: translateY(5%);
+    transform: translateY(-5%); // -5 gives this freaking smooth transition mann, but +5 is kinda lit too
     transition: opacity 100ms, transform 100ms;
   }
 `;

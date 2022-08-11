@@ -3,7 +3,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
 import { BsGraphUp, BsCart } from "react-icons/bs";
 import { StyledSidebar } from "./Sidebar.styled";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 interface Props {
@@ -17,6 +17,8 @@ export const Sidebar = ({
   setIsSideMenuOpen,
 }: Props) => {
   const navListRef = useRef<HTMLUListElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (navListRef.current) {
@@ -29,10 +31,17 @@ export const Sidebar = ({
         });
       });
     }
+
+    // if (location.pathname === "/" && sidebarRef.current) {
+    //   sidebarRef.current.classList.add("onHomepage");
+    // } else if (location.pathname !== '/') sidebarRef.current?.classList.remove("onHomepage");
   }, [setIsSideMenuOpen]);
 
   return (
-    <StyledSidebar className={`${className} ${isSideMenuOpen ? "active" : ""}`}>
+    <StyledSidebar
+      className={`${className} ${isSideMenuOpen ? "active" : ""}`}
+      ref={sidebarRef}
+    >
       <ul className="nav-list" ref={navListRef}>
         <button
           className="close-btn"
@@ -41,9 +50,9 @@ export const Sidebar = ({
           <IoMdClose />
         </button>
         <li className="active">
-          <Link to="/">
+          <Link to="/dashboard">
             <AiOutlineHome className="menu-icon" />
-            Home
+            Dashboard
           </Link>
         </li>
         <li>

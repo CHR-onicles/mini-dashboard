@@ -18,6 +18,10 @@ export const StyledSidebar = styled.nav`
   &.active {
     transform: translate(0);
   }
+
+  &.onHomepage {
+    display: none;
+  }
   
   .nav-list {
     display: flex;

@@ -9,9 +9,14 @@ import {
 } from "../../styles/Utilities.styled";
 
 export const StyledNavbar = styled.div`
+  opacity: 1;
   padding-top: 1rem;
   width: 95%;
   margin-inline: auto;
+
+  &.onHomepage {
+    opacity: 0;
+  }
 
   .wrapper {
     ${flexSpBetween};

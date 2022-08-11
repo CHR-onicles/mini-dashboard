@@ -12,10 +12,11 @@ import { Sidebar } from "../components";
 import { StyledApp } from "./App.styled";
 // import { Preloader } from "../components/Preloader";
 import { useState } from "react";
-import { Home } from "../pages/Home";
+import { Dashboard } from "../pages/Dashboard";
 import { UserList } from "../pages/UserList";
 import { User } from "../pages/User";
 import { NewUser } from "../pages/NewUser";
+import { Home } from "../pages/Home";
 
 const App = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -43,6 +44,7 @@ const App = () => {
           >
             <Routes location={location}>
               <Route path="/" element={<Home className="page" />} />
+              <Route path="/dashboard" element={<Dashboard className="page" />} />
               <Route path="/users" element={<UserList className="page" />} />
               <Route path="/user/:id" element={<User className="page" />} />
               <Route path="/newUser" element={<NewUser className="page" />} />
