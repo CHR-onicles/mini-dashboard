@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
-  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
   const navbarRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -34,7 +34,7 @@ export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
             <BsSearch />
           </div> */}
         <div className="right-items">
-          <button onClick={() => loginWithRedirect()}>Login</button>
+          <button onClick={() => logout()}>Logout</button>
           <MdOutlineNotificationsNone className="notification" />
           <div className="avatar">
             <img src="https://i.pravatar.cc/150" alt="person" />

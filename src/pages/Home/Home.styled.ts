@@ -17,7 +17,7 @@ export const StyledHome = styled.div`
       font-size: 2rem;
     }
 
-    a {
+    button {
       margin-top: 2rem;
       padding: 0.7em 1.5em;
       background-color: ${theme.colors.gray300};
