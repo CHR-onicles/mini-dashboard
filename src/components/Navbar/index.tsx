@@ -13,10 +13,10 @@ interface Props {
 }
 
 export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated } = useAuth0();
   const navbarRef = useRef<HTMLDivElement>(null);
 
-  return (
+  return isAuthenticated ? (
     <StyledNavbar ref={navbarRef}>
       {/* <Container> */}
       <div className="wrapper">
@@ -43,5 +43,5 @@ export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
       </div>
       {/* </Container> */}
     </StyledNavbar>
-  );
+  ) : null;
 };

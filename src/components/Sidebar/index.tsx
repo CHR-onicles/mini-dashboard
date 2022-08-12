@@ -5,6 +5,7 @@ import { BsGraphUp, BsCart } from "react-icons/bs";
 import { StyledSidebar } from "./Sidebar.styled";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Props {
   className?: string;
@@ -18,6 +19,7 @@ export const Sidebar = ({
 }: Props) => {
   const navListRef = useRef<HTMLUListElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
+  const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
     if (navListRef.current) {
@@ -32,7 +34,7 @@ export const Sidebar = ({
     }
   }, [setIsSideMenuOpen]);
 
-  return (
+  return isAuthenticated ? (
     <StyledSidebar
       className={`${className} ${isSideMenuOpen ? "active" : ""}`}
       ref={sidebarRef}
@@ -88,5 +90,5 @@ export const Sidebar = ({
         </li>
       </ul>
     </StyledSidebar>
-  );
+  ) : null;
 };

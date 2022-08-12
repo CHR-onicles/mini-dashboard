@@ -17,10 +17,14 @@ import { UserList } from "../pages/UserList";
 import { User } from "../pages/User";
 import { NewUser } from "../pages/NewUser";
 import { Home } from "../pages/Home";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const location = useLocation();
+  const { isLoading, isAuthenticated } = useAuth0();
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <StyledApp>
@@ -44,13 +48,23 @@ const App = () => {
           >
             <Routes location={location}>
               <Route path="/" element={<Home className="page" />} />
-              <Route
-                path="/dashboard"
-                element={<Dashboard className="page" />}
-              />
-              <Route path="/users" element={<UserList className="page" />} />
-              <Route path="/user/:id" element={<User className="page" />} />
-              <Route path="/newUser" element={<NewUser className="page" />} />
+              {isAuthenticated ? (
+                <>
+                  <Route
+                    path="/dashboard"
+                    element={<Dashboard className="page" />}
+                  />
+                  <Route
+                    path="/users"
+                    element={<UserList className="page" />}
+                  />
+                  <Route path="/user/:id" element={<User className="page" />} />
+                  <Route
+                    path="/newUser"
+                    element={<NewUser className="page" />}
+                  />
+                </>
+              ) : null}
               <Route
                 path="*"
                 element={<div className="page">Error page</div>}
