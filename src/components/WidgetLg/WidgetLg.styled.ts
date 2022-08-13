@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  bp,
-  mq,
-  rem,
-  size,
-  theme,
-} from "../../styles/Utilities.styled";
+import { bp, mq, rem, size, theme } from "../../styles/Utilities.styled";
 
 export const StyledWidgetLg = styled.div`
   padding: 2rem;
@@ -21,8 +15,18 @@ export const StyledWidgetLg = styled.div`
   }
 
   .table {
-    border-spacing: 3.5rem 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    font-size: ${rem(15)};
     /* border: 1px solid; */
+
+    td:not(:last-child) {
+      padding-right: 3rem;
+    }
+
+    td {
+      padding-block: 0.25rem;
+    }
   }
 
   .table-header {
@@ -39,12 +43,12 @@ export const StyledWidgetLg = styled.div`
     .img-wrapper {
       border-radius: 50%;
       overflow: hidden;
-      ${size(rem(55))};
+      ${size(rem(50))};
     }
 
     .name {
-      font-size: ${rem(17)};
-      font-weight: 700;
+      font-size: ${rem(15)};
+      font-weight: 600;
     }
   }
 `;

@@ -35,15 +35,15 @@ export const StyledWidgetSm = styled.div`
     .img-wrapper {
       border-radius: 50%;
       overflow: hidden;
-      ${size(rem(55))};
+      ${size(rem(50))};
     }
 
     .text-wrapper {
       margin-left: -3rem;
 
       .name {
-        font-size: ${rem(17)};
-        font-weight: 700;
+        font-size: ${rem(15)};
+        font-weight: 600;
       }
       .role {
         font-size: ${rem(15)};
