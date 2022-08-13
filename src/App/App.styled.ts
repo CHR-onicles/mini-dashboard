@@ -12,8 +12,7 @@ export const StyledApp = styled.div`
   .page {
     position: static;
     width: 90%;
-    padding-block-start: 2rem;
-    padding-block-end: 5rem;
+    padding-block: 2rem;
     margin-inline: auto;
     overflow-y: auto;
     /* outline: 1px solid red; */
@@ -23,7 +22,7 @@ export const StyledApp = styled.div`
       top: 0;
       left: calc(var(--sidebar-width) + var(--sidebar-page-gap));
       width: calc(100% - (var(--sidebar-width) + var(--sidebar-page-gap)));
-      height: 100vh;
+      height: calc(100vh - 5rem);
       padding-inline: 2rem;
     }
   }

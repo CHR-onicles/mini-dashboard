@@ -9,10 +9,11 @@ export const StyledSidebar = styled.nav`
   transition: transform 0.3s;
 
   ${mq(bp.small)} {
-    position: static;
+    position: relative;
     transform: translate(0);
     background-color: ${theme.colors.bg};
-    width: 266px;
+    width: var(--sidebar-width);
+    /* outline: 1px solid blue; */
   }
 
   &.active {
@@ -21,6 +22,20 @@ export const StyledSidebar = styled.nav`
 
   &.onHomepage {
     display: none;
+  }
+
+  .logo {
+    display: none;
+    font-size: ${rem(18)};
+    font-weight: 700;
+    
+    ${mq(bp.small)} {
+      position: absolute;
+      display: block;
+      margin-top: -3rem;
+      padding-left: 1rem;
+      font-size: ${rem(22)};
+    }
   }
 
   .nav-list {
