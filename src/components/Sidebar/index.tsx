@@ -12,6 +12,8 @@ interface Props {
   isSideMenuOpen: boolean;
   setIsSideMenuOpen: (arg: boolean) => void;
 }
+
+
 export const Sidebar = ({
   className,
   isSideMenuOpen,
@@ -19,7 +21,7 @@ export const Sidebar = ({
 }: Props) => {
   const navListRef = useRef<HTMLUListElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, logout } = useAuth0();
 
   useEffect(() => {
     if (navListRef.current) {
@@ -39,6 +41,9 @@ export const Sidebar = ({
       className={`${className} ${isSideMenuOpen ? "active" : ""}`}
       ref={sidebarRef}
     >
+      <button className="logo" onClick={() => logout()}>
+        Logo
+      </button>
       <ul className="nav-list" ref={navListRef}>
         <button
           className="close-btn"

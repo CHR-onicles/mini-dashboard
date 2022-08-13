@@ -18,6 +18,7 @@ import { User } from "../pages/User";
 import { NewUser } from "../pages/NewUser";
 import { Home } from "../pages/Home";
 import { useAuth0 } from "@auth0/auth0-react";
+import { ProtectedRoute } from "../routes/ProtectedRoute";
 
 const App = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -48,23 +49,38 @@ const App = () => {
           >
             <Routes location={location}>
               <Route path="/" element={<Home className="page" />} />
-              {isAuthenticated ? (
-                <>
-                  <Route
-                    path="/dashboard"
-                    element={<Dashboard className="page" />}
-                  />
-                  <Route
-                    path="/users"
-                    element={<UserList className="page" />}
-                  />
-                  <Route path="/user/:id" element={<User className="page" />} />
-                  <Route
-                    path="/newUser"
-                    element={<NewUser className="page" />}
-                  />
-                </>
-              ) : null}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard className="page" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/users"
+                element={
+                  <ProtectedRoute>
+                    <UserList className="page" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/user/:id"
+                element={
+                  <ProtectedRoute>
+                    <User className="page" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/newUser"
+                element={
+                  <ProtectedRoute>
+                    <NewUser className="page" />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="*"
                 element={<div className="page">Error page</div>}

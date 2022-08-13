@@ -10,9 +10,10 @@ import {
 
 export const StyledNavbar = styled.div`
   opacity: 1;
-  padding-top: 1rem;
-  width: 95%;
-  margin-inline: auto;
+  padding-block: 1rem;
+  width: calc(93% - var(--sidebar-width));
+  margin-left: calc(var(--sidebar-width) + 3.5rem);
+  /* outline: 1px solid red; */
 
   &.onHomepage {
     opacity: 0;
@@ -22,16 +23,6 @@ export const StyledNavbar = styled.div`
     ${flexSpBetween};
     gap: 1rem;
     /* outline: 1px solid; */
-  }
-
-  .logo {
-    display: none;
-    font-size: ${rem(18)};
-    font-weight: 700;
-
-    ${mq(bp.small)} {
-      display: block;
-    }
   }
 
   .hamburger-btn {
@@ -79,7 +70,58 @@ export const StyledNavbar = styled.div`
 
       ${mq(bp.small)} {
         display: block;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    .profile-menu {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgb(0, 0, 0, 0);
+
+      svg {
+        fill: ${theme.colors.black};
+        transition: transform 0.3s;
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+
+      .drop-down {
+        position: absolute;
+        right: 0;
+        top: 120%;
+        padding-block: 0.25rem;
+        background-color: ${theme.colors.bg};
+        border-radius: 3px;
+        height: fit-content;
+        z-index: 10;
+        outline: 1px solid ${theme.colors.gray400};
+        transform: translateY(5%);
+        opacity: 0;
+        transition: transform 0.2s, opacity 0.2s;
+
+        &.open {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        &-item {
+          /* outline: 1px solid brown; */
+          padding: 0.5rem 2rem;
+          transition: background-color 0.2s;
+
+          button {
+            background: none;
+          }
+
+          &:hover {
+            background-color: ${theme.colors.gray200};
+          }
+        }
       }
     }
 
@@ -90,7 +132,7 @@ export const StyledNavbar = styled.div`
       overflow: hidden;
     }
 
-    button {
+    .hamburger-btn {
       padding: 0.7em 1.5em;
       background-color: ${theme.colors.gray300};
     }
