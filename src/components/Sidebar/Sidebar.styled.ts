@@ -28,6 +28,7 @@ export const StyledSidebar = styled.nav`
     display: none;
     font-size: ${rem(18)};
     font-weight: 700;
+    background: none;
     
     ${mq(bp.small)} {
       position: absolute;

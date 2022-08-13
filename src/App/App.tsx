@@ -23,7 +23,7 @@ import { ProtectedRoute } from "../routes/ProtectedRoute";
 const App = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const location = useLocation();
-  const { isLoading, isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0();
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -83,7 +83,7 @@ const App = () => {
               />
               <Route
                 path="*"
-                element={<div className="page">Error page</div>}
+                element={<div className="page">Sorry, this page cannot be found</div>}
               />
             </Routes>
           </CSSTransition>

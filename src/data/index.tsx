@@ -1,5 +1,10 @@
+import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
+import { BsCart, BsGraphUp } from "react-icons/bs";
+import { ImFilesEmpty } from "react-icons/im";
+import { IoPersonOutline } from "react-icons/io5";
 import { TUser } from "../types";
 
+// using any because any other type gives an error :(
 export const columns: any = [
   {
     Header: "ID",
@@ -92,3 +97,34 @@ export const userData: TUser[] = [
     // dateCreated: new Date(2022, 3, 6),
   },
 ];
+
+export const sidebarItems = [
+  {
+    name: "Dashboard",
+    icon: AiOutlineHome,
+  },
+  {
+    name: "Users",
+    icon: IoPersonOutline
+  },
+  {
+    name: "Analytics",
+    icon: BsGraphUp
+  },
+  {
+    name: "Products",
+    icon: BsCart
+  },
+  {
+    name: "Sales",
+    icon: BsGraphUp
+  },
+  {
+    name: "Reports",
+    icon: ImFilesEmpty
+  },
+  {
+    name: "Mail",
+    icon: AiOutlineMail
+  },
+]

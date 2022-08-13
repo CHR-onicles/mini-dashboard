@@ -83,9 +83,9 @@ export const Table = ({ userData, columns }: Props) => {
     if (tableRef.current) {
       const dataCells = tableRef.current.querySelectorAll(".data-cell");
       dataCells.forEach((cell) => {
-        if (cell.textContent && cell.textContent.length > 10) {
+        if (cell.textContent && cell.textContent.length > 15) {
           cell.textContent =
-            cell.textContent.slice(0, cell.textContent.length - 3) + "...";
+            cell.textContent.slice(0, cell.textContent.length - 2) + "...";
         }
       });
     }

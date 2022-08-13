@@ -1,18 +1,16 @@
-import { IoMdClose } from "react-icons/io";
-import { IoPersonOutline } from "react-icons/io5";
-import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
-import { BsGraphUp, BsCart } from "react-icons/bs";
-import { StyledSidebar } from "./Sidebar.styled";
-import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { IoMdClose } from "react-icons/io";
+
+import { StyledSidebar } from "./Sidebar.styled";
+import { sidebarItems } from "../../data";
 
 interface Props {
   className?: string;
   isSideMenuOpen: boolean;
   setIsSideMenuOpen: (arg: boolean) => void;
 }
-
 
 export const Sidebar = ({
   className,
@@ -22,19 +20,8 @@ export const Sidebar = ({
   const navListRef = useRef<HTMLUListElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
   const { isAuthenticated, logout } = useAuth0();
+  const location = useLocation();
 
-  useEffect(() => {
-    if (navListRef.current) {
-      const listItems = navListRef.current.querySelectorAll("li");
-      listItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          listItems.forEach((elem) => elem.classList.remove("active"));
-          item.classList.add("active");
-          setIsSideMenuOpen(false);
-        });
-      });
-    }
-  }, [setIsSideMenuOpen]);
 
   return isAuthenticated ? (
     <StyledSidebar
@@ -51,48 +38,22 @@ export const Sidebar = ({
         >
           <IoMdClose />
         </button>
-        <li className="active">
-          <Link to="/dashboard">
-            <AiOutlineHome className="menu-icon" />
-            Dashboard
-          </Link>
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <BsGraphUp className="menu-icon" />
-          Analytics
-          {/* </Link> */}
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <BsGraphUp className="menu-icon" /> Sales
-          {/* </Link> */}
-        </li>
-        <li>
-          <Link to="/users">
-            <IoPersonOutline className="menu-icon" /> Users
-          </Link>
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <BsCart className="menu-icon" /> Products
-          {/* </Link> */}
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <BsGraphUp className="menu-icon" /> Transactions
-          {/* </Link> */}
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <BsGraphUp className="menu-icon" /> Reports
-          {/* </Link> */}
-        </li>
-        <li>
-          {/* <Link to="#"> */}
-          <AiOutlineMail className="menu-icon" /> Mail
-          {/* </Link> */}
-        </li>
+        {sidebarItems.map((item) => {
+          return (
+            <li
+              className={`${
+                location.pathname.includes(item.name.toLocaleLowerCase())
+                  ? "active"
+                  : ""
+              }`}
+            >
+              <Link to={`/${item.name.toLocaleLowerCase()}`}>
+                <item.icon className="menu-icon" />
+                {item.name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </StyledSidebar>
   ) : null;

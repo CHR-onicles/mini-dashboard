@@ -83,14 +83,16 @@ export const StyledNavbar = styled.div`
 
       svg {
         fill: ${theme.colors.black};
-        transition: transform 0.3s;
+        transition: transform 0.2s, fill 0.2s;
 
         &.open {
           transform: rotate(180deg);
+          fill: ${theme.colors.gray400};
         }
       }
 
       .drop-down {
+        visibility: hidden;
         position: absolute;
         right: 0;
         top: 120%;
@@ -101,10 +103,11 @@ export const StyledNavbar = styled.div`
         z-index: 10;
         outline: 1px solid ${theme.colors.gray400};
         transform: translateY(5%);
-        opacity: 0;
         transition: transform 0.2s, opacity 0.2s;
+        /* outline: 1px solid red; */
 
         &.open {
+          visibility: visible;
           opacity: 1;
           transform: translateY(0);
         }
