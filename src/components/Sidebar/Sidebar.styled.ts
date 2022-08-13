@@ -87,17 +87,4 @@ export const StyledSidebar = styled.nav`
       }
     }
   }
-
-  .close-btn {
-    position: absolute;
-    top: 2%;
-    right: 3%;
-    color: ${theme.colors.gray700};
-    font-size: 1.8rem;
-    background: none;
-
-    ${mq(bp.small)} {
-      display: none;
-    }
-  }
 `;

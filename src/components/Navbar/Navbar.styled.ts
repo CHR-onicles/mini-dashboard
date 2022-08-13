@@ -21,16 +21,18 @@ export const StyledNavbar = styled.div`
 
   .wrapper {
     ${flexSpBetween};
-    gap: 1rem;
+    gap: 2rem;
     /* outline: 1px solid; */
   }
 
-  .hamburger-btn {
-    font-size: 1.6rem;
-    background: none;
+  .left-items {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-    ${mq(bp.small)} {
-      display: none;
+    p {
+      font-size: ${rem(18)};
+      white-space: nowrap;
     }
   }
 

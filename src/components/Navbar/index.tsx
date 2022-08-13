@@ -1,36 +1,26 @@
 import { useRef, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { HiMenuAlt2 } from "react-icons/hi";
-import { BsSearch, BsFillCaretDownFill } from "react-icons/bs";
+import { BsFillCaretDownFill } from "react-icons/bs";
 
 // import { BsSearch } from "react-icons/bs";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { StyledNavbar } from "./Navbar.styled";
 import { Link } from "react-router-dom";
 
-interface Props {
-  isSideMenuOpen: boolean;
-  setIsSideMenuOpen: (arg: boolean) => void;
-}
-
-export const Navbar = ({ isSideMenuOpen, setIsSideMenuOpen }: Props) => {
-  const { logout, isAuthenticated } = useAuth0();
+export const Navbar = () => {
+  const { logout, isAuthenticated, user } = useAuth0();
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   return isAuthenticated ? (
     <StyledNavbar ref={navbarRef}>
       <div className="wrapper">
-        <button
-          className="hamburger-btn"
-          onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}
-        >
-          <HiMenuAlt2 className="hamburger" />
-        </button>
-
-        <div className="search-wrapper">
-          <input type="text" placeholder="Search" />
-          <BsSearch />
+        <div className="left-items">
+          <p>Hello, {user?.name}</p>
+          {/* <div className="search-wrapper">
+            <input type="text" placeholder="Search" />
+            <BsSearch /> */}
+          {/* </div> */}
         </div>
         <div className="right-items">
           <MdOutlineNotificationsNone className="notification" />

@@ -5,23 +5,21 @@ import {
   useLocation,
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { GlobalStyles } from "../styles/GlobalStyles.styled";
 import { Navbar } from "../components";
 import { Sidebar } from "../components";
 import { StyledApp } from "./App.styled";
 // import { Preloader } from "../components/Preloader";
-import { useState } from "react";
 import { Dashboard } from "../pages/Dashboard";
 import { UserList } from "../pages/UserList";
 import { User } from "../pages/User";
 import { NewUser } from "../pages/NewUser";
 import { Home } from "../pages/Home";
-import { useAuth0 } from "@auth0/auth0-react";
 import { ProtectedRoute } from "../routes/ProtectedRoute";
 
 const App = () => {
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const location = useLocation();
   const { isLoading } = useAuth0();
 
@@ -32,14 +30,10 @@ const App = () => {
       {/* <Preloader /> */}
       <GlobalStyles />
       <Navbar
-        isSideMenuOpen={isSideMenuOpen}
-        setIsSideMenuOpen={setIsSideMenuOpen}
       />
       <div className="app-container">
         <Sidebar
           className="sidebar"
-          isSideMenuOpen={isSideMenuOpen}
-          setIsSideMenuOpen={setIsSideMenuOpen}
         />
         <TransitionGroup component={null}>
           <CSSTransition
