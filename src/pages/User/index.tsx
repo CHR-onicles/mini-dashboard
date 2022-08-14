@@ -57,7 +57,7 @@ export const User = ({ className }: Props) => {
     <StyledUser className={className}>
       <div className="header-wrapper">
         <h2>Edit User</h2>
-        <Link to="/newUser">Create</Link>
+        <Link to="/users/newUser">Create</Link>
       </div>
 
       <div className="container">

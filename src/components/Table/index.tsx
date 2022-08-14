@@ -124,7 +124,7 @@ export const Table = ({ userData, columns }: Props) => {
                   );
                 })}
                 <td>
-                  <Link to={`/user/${row.cells[0].value}`}>
+                  <Link to={`/users/${row.cells[0].value}`}>
                     <button title="Edit">
                       <FiEdit3 />
                     </button>

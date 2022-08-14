@@ -1,6 +1,7 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 import { userData } from "../data";
-import { TUserContext, TUser } from "../types";
+import { TUserContext, TUser, ActionType } from "../types";
+import { userReducer } from "./userReducer";
 
 export const userContext = createContext<TUserContext | null>(null);
 
@@ -9,35 +10,28 @@ type Props = {
 };
 
 export const UserProvider = ({ children }: Props) => {
-  const [users, setUsers] = useState<TUser[]>(userData);
+  const initialReducerState = {
+    users: [...userData],
+  };
+
+  const [state, dispatch] = useReducer(userReducer, initialReducerState);
 
   const createUser = (newUser: TUser) => {
-    setUsers([...users, newUser]);
+    dispatch({ type: ActionType.CreateUser, payload: newUser });
   };
 
   const updateUser = (userToUpdate: TUser) => {
-    const newUsers = users.filter((user) => {
-      if (user.id === userToUpdate.id) {
-        user.email = userToUpdate.email || user.email;
-        user.username = userToUpdate.username || user.username;
-        user.fullName = userToUpdate.fullName || user.fullName;
-        user.gender = userToUpdate.gender || user.gender;
-        user.phone = userToUpdate.phone || user.phone;
-        user.role = userToUpdate.role || user.role;
-        user.address = userToUpdate.address || user.address;
-      }
-      return user;
-    });
-    setUsers(newUsers);
+    dispatch({ type: ActionType.updateUser, payload: userToUpdate });
   };
 
   const deleteUser = (userToDelete: TUser) => {
-    const newUsers = users.filter((user) => user.id !== userToDelete.id);
-    setUsers(newUsers);
+    dispatch({ type: ActionType.DeleteUser, payload: userToDelete });
   };
 
   return (
-    <userContext.Provider value={{ users, createUser, deleteUser, updateUser }}>
+    <userContext.Provider
+      value={{ users: state.users, createUser, deleteUser, updateUser }}
+    >
       {children}
     </userContext.Provider>
   );
