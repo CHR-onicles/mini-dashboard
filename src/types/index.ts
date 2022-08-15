@@ -22,11 +22,18 @@ export enum ActionType {
   DeleteUser = "DELETE_USER",
 }
 
-export type Action = {
+export type TUserPayloadAction = {
   type: ActionType;
   payload: TUser;
 };
 
-export type ReducerState = {
+export type TIdPayloadAction = {
+  type: ActionType;
+  payload: number;
+};
+
+export type TAction = TUserPayloadAction | TIdPayloadAction;
+
+export type TReducerState = {
   users: TUser[];
 };

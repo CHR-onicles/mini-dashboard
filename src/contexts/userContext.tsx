@@ -17,6 +17,7 @@ export const UserProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(userReducer, initialReducerState);
 
   const createUser = (newUser: TUser) => {
+    console.log("create action:", state.users);
     dispatch({ type: ActionType.CreateUser, payload: newUser });
   };
 
@@ -25,6 +26,7 @@ export const UserProvider = ({ children }: Props) => {
   };
 
   const deleteUser = (userToDelete: TUser) => {
+    console.log("delete action:", state.users);
     dispatch({ type: ActionType.DeleteUser, payload: userToDelete });
   };
 

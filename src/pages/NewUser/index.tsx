@@ -31,7 +31,7 @@ export const NewUser = ({ className }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newUser = { ...form, id: users.length + 1 };
+    const newUser = { ...form, id: users[users.length-1].id + 1 };
     createUser(newUser as TUser);
     navigate("/users");
   };

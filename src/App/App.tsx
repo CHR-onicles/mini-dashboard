@@ -77,7 +77,7 @@ const App = () => {
               />
               <Route
                 path="*"
-                element={<div className="page">Sorry, this page cannot be found</div>}
+                element={<div className="page">Sorry, this page cannot be found or has not yet been built</div>}
               />
             </Routes>
           </CSSTransition>

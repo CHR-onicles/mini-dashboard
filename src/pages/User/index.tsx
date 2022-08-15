@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsPerson, BsCalendarDate, BsPhone } from "react-icons/bs";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { userContext } from "../../contexts/userContext";
 import { StyledUser } from "./User.styled";
 import { TUserContext, TUser } from "../../types";
@@ -37,13 +37,13 @@ export const User = ({ className }: Props) => {
       ...form,
       id: currentUser.id,
       gender: currentUser.gender,
-      phone: currentUser.phone 
-    }
-    updateUser(updatedUser)
+      phone: currentUser.phone,
+    };
+    updateUser(updatedUser);
   };
 
   const fetchCurrentUserData = (id: string) => {
-    return users.find(user => user.id === +id);
+    return users.find((user) => user.id === +id);
   };
 
   useEffect(() => {
@@ -55,10 +55,7 @@ export const User = ({ className }: Props) => {
 
   return (
     <StyledUser className={className}>
-      <div className="header-wrapper">
-        <h2>Edit User</h2>
-        <Link to="/users/newUser">Create</Link>
-      </div>
+      <h2>Edit User</h2>
 
       <div className="container">
         <div className="detail-view">
