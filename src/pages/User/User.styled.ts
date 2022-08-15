@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   flexColumn,
-  flexSpBetween,
   rem,
   size,
   theme,
@@ -10,19 +9,9 @@ import {
 export const StyledUser = styled.div`
   padding: 2rem;
 
-  .header-wrapper {
-    ${flexSpBetween};
-    align-items: center;
-    margin-bottom: 2rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    a {
-      background-color: ${theme.colors.gray300};
-      padding: 0.7rem 2rem;
-    }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .container {

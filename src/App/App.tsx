@@ -60,7 +60,7 @@ const App = () => {
                 }
               />
               <Route
-                path="/user/:id"
+                path="/users/:id"
                 element={
                   <ProtectedRoute>
                     <User className="page" />
@@ -68,7 +68,7 @@ const App = () => {
                 }
               />
               <Route
-                path="/newUser"
+                path="/users/newUser"
                 element={
                   <ProtectedRoute>
                     <NewUser className="page" />
@@ -77,7 +77,7 @@ const App = () => {
               />
               <Route
                 path="*"
-                element={<div className="page">Sorry, this page cannot be found</div>}
+                element={<div className="page">Sorry, this page cannot be found or has not yet been built</div>}
               />
             </Routes>
           </CSSTransition>

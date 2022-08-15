@@ -60,7 +60,7 @@ const data = [
 export const Chart = () => {
   return (
     <StyledChart>
-      <h3>Sales Analytics</h3>
+      <h3>User Analytics</h3>
 
       <ResponsiveContainer width="100%" aspect={isMatchMediaMinWidth(bp.large) ? 3 : 2/1}>
         <LineChart

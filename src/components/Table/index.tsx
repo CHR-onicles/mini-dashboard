@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTable } from "react-table";
 import { FiEdit3 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { StyledTable } from "./Table.styled";
+import { userContext } from "../../contexts/userContext";
+import { TUserContext } from "../../types";
 
 // const dummyData = [
 //   {
@@ -66,18 +68,15 @@ interface Props {
 }
 
 export const Table = ({ userData, columns }: Props) => {
-  const [data, setData] = useState(userData);
   const tableRef = useRef<HTMLTableElement>(null);
+  const data = userData;
+  const { deleteUser } = useContext(userContext) as TUserContext;
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
       data,
     });
-
-  const handleDelete = (id: number) => {
-    setData(data.filter((item) => item.id !== id));
-  };
 
   useEffect(() => {
     if (tableRef.current) {
@@ -124,14 +123,14 @@ export const Table = ({ userData, columns }: Props) => {
                   );
                 })}
                 <td>
-                  <Link to={`/user/${row.cells[0].value}`}>
+                  <Link to={`/users/${row.cells[0].value}`}>
                     <button title="Edit">
                       <FiEdit3 />
                     </button>
                   </Link>
                   <button
                     title="Delete"
-                    onClick={() => handleDelete(row.cells[0].value)}
+                    onClick={() => deleteUser(row.cells[0].value)}
                   >
                     <AiOutlineDelete />
                   </button>

@@ -27,9 +27,10 @@ export const Sidebar = ({
         Logo
       </button>
       <ul className="nav-list" ref={navListRef}>
-        {sidebarItems.map((item) => {
+        {sidebarItems.map((item, id) => {
           return (
             <li
+            key={id}
               className={`${
                 location.pathname.includes(item.name.toLocaleLowerCase())
                   ? "active"
