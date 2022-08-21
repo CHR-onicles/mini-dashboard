@@ -88,7 +88,7 @@ export const userData: TUser[] = [
   {
     id: 5,
     username: "Spiderman",
-    fullName: "Peter Parker",
+    fullName: "Peter Pan Parker",
     gender: "male",
     phone: "+233444444444",
     email: "peterparker@gmail.com",

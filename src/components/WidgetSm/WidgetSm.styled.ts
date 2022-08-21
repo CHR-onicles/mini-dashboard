@@ -50,7 +50,7 @@ export const StyledWidgetSm = styled.div`
       }
     }
 
-    button {
+    a {
       font-weight: 700;
       background: none;
     }
