@@ -26,7 +26,6 @@ export const UserProvider = ({ children }: Props) => {
   };
 
   const deleteUser = (userToDelete: TUser) => {
-    console.log("delete action:", state.users);
     dispatch({ type: ActionType.DeleteUser, payload: userToDelete });
   };
 

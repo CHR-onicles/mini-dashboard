@@ -29,12 +29,9 @@ const App = () => {
     <StyledApp>
       {/* <Preloader /> */}
       <GlobalStyles />
-      <Navbar
-      />
+      <Navbar />
       <div className="app-container">
-        <Sidebar
-          className="sidebar"
-        />
+        <Sidebar className="sidebar" />
         <TransitionGroup component={null}>
           <CSSTransition
             key={location.key}
@@ -77,7 +74,11 @@ const App = () => {
               />
               <Route
                 path="*"
-                element={<div className="page">Sorry, this page cannot be found or has not yet been built</div>}
+                element={
+                  <div className="page">
+                    Sorry, this page cannot be found or has not yet been built
+                  </div>
+                }
               />
             </Routes>
           </CSSTransition>
