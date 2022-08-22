@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.11.43",
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-table": "^7.7.12",
     "@types/react-transition-group": "^4.4.5",
